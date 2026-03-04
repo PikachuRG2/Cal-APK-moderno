@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Posto Paraíso - Calculadora</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#003366">
+
+<style>
+    :root {
+        --verde: #006b36;
+        --amarelo: #ffd100;
+        --cinza: #f1f1f1;
+        --texto: #333333;
+        --logo: #eead2d;
+        --azul-escuro: #003366;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: var(--logo);
+        margin: 0;
+    }
+
+    header {
+        background: var(--azul-escuro);
+        color: white;
+        text-align: center;
+        padding: 18px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    h3 { color: var(--verde); font-size: 16px; }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .selecionado {
+        border: 3px solid #000;
+        filter: brightness(1.15);
+    }
+
+    .produto { background: var(--amarelo); }
+    .pix { background: var(--verde); color: white; }
+    .debito { background: #1f7bb6; color: white; }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #111;
+    }
+
+    #resultado {
+        margin-top: 15px;
+        padding: 14px;
+        background: var(--cinza);
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<header>⛽ AUTO POSTO PARAÍSO ⛽</header>
+
+<h3>Produto</h3>
+<button id="gasolina" class="produto" onclick="selecionarProduto('gasolina')">Gasolina Comum</button>
+<button id="aditivada" class="produto" onclick="selecionarProduto('aditivada')">Gasolina Aditivada</button>
+<button id="diesel" class="produto" onclick="selecionarProduto('diesel')">Diesel Comum</button>
+<button id="diesel10" class="produto" onclick="selecionarProduto('diesel10')">Diesel 10</button>
+<button id="alcool" class="produto" onclick="selecionarProduto('alcool')">Álcool</button>
+
+<h3>Forma de Pagamento</h3>
+<button id="pix" class="pix" onclick="selecionarPagamento('pix')">Pix</button>
+<button id="debito" class="debito" onclick="selecionarPagamento('debito')">Débito</button>
+
+<h3>Litros</h3>
+<input type="number" id="litros" oninput="calcular()">
+
+<h3>Valor (R$)</h3>
+<input type="number" id="dinheiro" oninput="calcular()">
+
+<div id="resultado">Total: R$ 0,00</div>
+
+<button class="botao-calculadora" onclick="window.location.href='https://cal-simples-pro-v2.vercel.app/'">
+        Calculadora
+    </button>
+</div>
+
+<script>
+let produto = null;
+let pagamento = null;
+
+const precos = {
+    gasolina: { pix: 6.39, debito: 6.59 },
+    aditivada: { pix: 6.49, debito: 6.69 },
+    diesel: { pix: 5.79, debito: 5.99 },
+    diesel10: { pix: 5.95, debito: 5.99 },
+    alcool: { pix: 5.70, debito: 5.90 }
+};
+
+function selecionarProduto(tipo) {
+    produto = tipo;
+    document.querySelectorAll(".produto").forEach(b => b.classList.remove("selecionado"));
+    document.getElementById(tipo).classList.add("selecionado");
+    calcular();
+}
+
+function selecionarPagamento(tipo) {
+    pagamento = tipo;
+    document.querySelectorAll(".pix,.debito").forEach(b => b.classList.remove("selecionado"));
+    document.getElementById(tipo).classList.add("selecionado");
+    calcular();
+}
+
+function calcular() {
+    if (!produto || !pagamento) {
+        resultado.innerHTML = "Selecione produto e pagamento";
+        return;
+    }
+
+    const preco = precos[produto][pagamento];
+    const litros = parseFloat(litrosInput.value);
+    const dinheiro = parseFloat(dinheiroInput.value);
+
+    const nomes = {
+        gasolina: "Gasolina Comum",
+        aditivada: "Gasolina Aditivada",
+        diesel: "Diesel S10",
+        diesel10: "Diesel &10",
+        alcool: "Álcool"
+    };
+
+    if (litros > 0) {
+        resultado.innerHTML = `${nomes[produto]}<br>Total: R$ ${(litros * preco).toFixed(2)}`;
+    } else if (dinheiro > 0) {
+        resultado.innerHTML = `${nomes[produto]}<br>Litros: ${(dinheiro / preco).toFixed(2)} L`;
+    }
+}
+
+const litrosInput = document.getElementById("litros");
+const dinheiroInput = document.getElementById("dinheiro");
+const resultado = document.getElementById("resultado");
+</script>
+
+</body>
+</html>
