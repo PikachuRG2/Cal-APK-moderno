@@ -1,7 +1,11 @@
 [
     {
-        "merged": "com.example.calapkmoderno.app-debug-29:/xml_network_security_config.xml.flat",
-        "source": "com.example.calapkmoderno.app-main-31:/xml/network_security_config.xml"
+        "merged": "C:\\Users\\RG2\\.gradle\\daemon\\8.10.2\\com.example.calapkmoderno.app-debug-29:\\menu_main_menu.xml.flat",
+        "source": "C:\\Users\\RG2\\.gradle\\daemon\\8.10.2\\com.example.calapkmoderno.app-main-31:\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\RG2\\.gradle\\daemon\\8.10.2\\com.example.calapkmoderno.app-debug-29:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\RG2\\.gradle\\daemon\\8.10.2\\com.example.calapkmoderno.app-main-31:\\xml\\network_security_config.xml"
     },
     {
         "merged": "C:\\Users\\RG2\\.gradle\\daemon\\8.10.2\\com.example.calapkmoderno.app-debug-29:\\layout_activity_main.xml.flat",
