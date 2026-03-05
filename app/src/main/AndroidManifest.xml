@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:label="Calculadora Pro"
+        android:label="RG2 Money"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="false"
