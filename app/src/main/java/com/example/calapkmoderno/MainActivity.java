@@ -1,29 +1,19 @@
 package com.example.calapkmoderno;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
+import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
-    private static final String GITHUB_BASE_URL = "https://raw.githubusercontent.com/PikachuRG2/Calculadora-Pro/main/";
-    private static final String[] SITE_FILES = {"index.html", "icon_192.png", "icon_512.png", "manifest.json", "service-worker.js"};
+    private static final String SITE_URL = "https://pikachurg2.github.io/RG2-Calculadora-pro/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,27 +21,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         webView = findViewById(R.id.webview);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setAllowFileAccess(true);
-        webSettings.setAllowContentAccess(true);
+        configureWebView();
 
-        webView.setWebViewClient(new WebViewClient());
-
-        loadLocalContent();
-        checkForUpdates();
+        if (isNetworkAvailable()) {
+            // Se tiver internet, carrega do site e atualiza o cache
+            webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+            webView.loadUrl(SITE_URL);
+        } else {
+            // Se NÃO tiver internet, força carregar do cache (offline)
+            webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+            webView.loadUrl(SITE_URL);
+        }
     }
 
-    private void loadLocalContent() {
-        File cachedIndex = new File(getCacheDir(), "index.html");
-        if (cachedIndex.exists()) {
-            Log.d("WebViewDebug", "Loading from cache: " + cachedIndex.toURI().toString());
-            webView.loadUrl(cachedIndex.toURI().toString());
-        } else {
-            Log.d("WebViewDebug", "Loading from assets");
-            webView.loadUrl("file:///android_asset/index.html");
-        }
+    private void configureWebView() {
+        WebSettings settings = webView.getSettings();
+        
+        // Habilita JavaScript e armazenamento local (essencial para login moderno)
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setDatabaseEnabled(true);
+        
+        // Configurações de Cache para funcionar offline
+        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setAllowFileAccess(true);
+        
+        // Persistência de Cookies (para manter o login)
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setAcceptThirdPartyCookies(webView, true);
+        
+        // Garante que o WebView gerencie os links dentro dele mesmo
+        webView.setWebViewClient(new WebViewClient());
     }
 
     private boolean isNetworkAvailable() {
@@ -60,39 +61,12 @@ public class MainActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private void checkForUpdates() {
-        if (!isNetworkAvailable()) {
-            Log.d("UpdateDebug", "No network connection, skipping update check.");
-            return;
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
         }
-
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            try {
-                // Lógica de verificação de atualização (simplificada por enquanto)
-                // Apenas baixa os arquivos para o cache
-                for (String fileName : SITE_FILES) {
-                    URL url = new URL(GITHUB_BASE_URL + fileName);
-                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                    try {
-                        InputStream inputStream = urlConnection.getInputStream();
-                        File file = new File(getCacheDir(), fileName);
-                        FileOutputStream fileOutputStream = new FileOutputStream(file);
-
-                        byte[] buffer = new byte[1024];
-                        int bufferLength;
-                        while ((bufferLength = inputStream.read(buffer)) > 0) {
-                            fileOutputStream.write(buffer, 0, bufferLength);
-                        }
-                        fileOutputStream.close();
-                        Log.d("UpdateDebug", "File downloaded successfully: " + fileName);
-                    } finally {
-                        urlConnection.disconnect();
-                    }
-                }
-            } catch (Exception e) {
-                Log.e("UpdateDebug", "Error checking for updates", e);
-            }
-        });
     }
 }
