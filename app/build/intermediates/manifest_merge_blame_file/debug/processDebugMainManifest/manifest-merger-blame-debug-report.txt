@@ -27,64 +27,68 @@
 18-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 19
 20    <application
-20-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-24:19
+20-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-26:19
 21        android:allowBackup="true"
 21-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:9:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 22-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 23        android:debuggable="true"
 24        android:extractNativeLibs="true"
-25        android:label="Calculadora Pro"
-25-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:10:9-40
-26        android:networkSecurityConfig="@xml/network_security_config"
-26-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:14:9-69
-27        android:supportsRtl="true"
-27-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:11:9-35
-28        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-28-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:12:9-65
-29        android:usesCleartextTraffic="false" >
-29-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:13:9-45
-30        <activity
-30-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:15:9-23:20
-31            android:name="com.example.calapkmoderno.MainActivity"
-31-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:16:13-41
-32            android:configChanges="orientation|screenSize"
-32-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:18:13-59
-33            android:exported="true" >
-33-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:17:13-36
-34            <intent-filter>
-34-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:19:13-22:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:17-69
-35-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:17-77
-37-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:27-74
-38            </intent-filter>
-39        </activity>
-40
-41        <provider
-41-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-42            android:name="androidx.startup.InitializationProvider"
-42-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-43            android:authorities="com.example.calapkmoderno.androidx-startup"
-43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-44            android:exported="false" >
-44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-45            <meta-data
-45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-46                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-47                android:value="androidx.startup" />
-47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-48            <meta-data
-48-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-49                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-49-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-50                android:value="androidx.startup" />
-50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-51        </provider>
-52    </application>
-53
-54</manifest>
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:11:9-43
+26        android:label="RG2 Money"
+26-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:10:9-34
+27        android:networkSecurityConfig="@xml/network_security_config"
+27-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:16:9-69
+28        android:roundIcon="@mipmap/ic_launcher_round"
+28-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:12:9-54
+29        android:supportsRtl="true"
+29-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:13:9-35
+30        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+30-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:14:9-65
+31        android:usesCleartextTraffic="false" >
+31-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:15:9-45
+32        <activity
+32-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:17:9-25:20
+33            android:name="com.example.calapkmoderno.MainActivity"
+33-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:18:13-41
+34            android:configChanges="orientation|screenSize"
+34-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:13-59
+35            android:exported="true" >
+35-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:19:13-36
+36            <intent-filter>
+36-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:13-24:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:22:17-69
+37-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:22:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:23:17-77
+39-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:23:27-74
+40            </intent-filter>
+41        </activity>
+42
+43        <provider
+43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+44            android:name="androidx.startup.InitializationProvider"
+44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+45            android:authorities="com.example.calapkmoderno.androidx-startup"
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+46            android:exported="false" >
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+47            <meta-data
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+48                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+49                android:value="androidx.startup" />
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+50            <meta-data
+50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+51                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+51-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+52                android:value="androidx.startup" />
+52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+53        </provider>
+54    </application>
+55
+56</manifest>

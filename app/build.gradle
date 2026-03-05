@@ -40,3 +40,33 @@ androidComponents {
         }
     })
 }
+
+tasks.register('generateLauncherIcons') {
+    doLast {
+        def src = file("$projectDir/src/main/res/drawable/ic_launcher_foreground_img.png")
+        if (!src.exists()) {
+            println("[icons] Fonte não encontrada: ${src}. Pulando geração de mipmaps.")
+            return
+        }
+        def img = javax.imageio.ImageIO.read(src)
+        def sizes = ['mdpi':48, 'hdpi':72, 'xhdpi':96, 'xxhdpi':144, 'xxxhdpi':192]
+        sizes.each { density, size ->
+            def dir = file("$projectDir/src/main/res/mipmap-${density}")
+            if (!dir.exists()) dir.mkdirs()
+            def outStandard = new File(dir, "ic_launcher.png")
+            def outRound = new File(dir, "ic_launcher_round.png")
+            def scaled = new java.awt.image.BufferedImage(size, size, java.awt.image.BufferedImage.TYPE_INT_ARGB)
+            def g = scaled.createGraphics()
+            g.setRenderingHint(java.awt.RenderingHints.KEY_INTERPOLATION, java.awt.RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+            g.drawImage(img, 0, 0, size, size, null)
+            g.dispose()
+            javax.imageio.ImageIO.write(scaled, "png", outStandard)
+            javax.imageio.ImageIO.write(scaled, "png", outRound)
+        }
+        println("[icons] Mipmaps gerados a partir do foreground PNG.")
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn("generateLauncherIcons")
+}

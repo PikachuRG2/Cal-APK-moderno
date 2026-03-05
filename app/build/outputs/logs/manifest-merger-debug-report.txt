@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\831576cfcd8cb09f7d35fce764d55940\transformed\material-1.9.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\c4ccdbc9fd330e80fd28bc0ed588dacc\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\438e139aa78f69804a46ea77764081bf\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -63,8 +63,8 @@ ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-24:19
-INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-24:19
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-26:19
+INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-26:19
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\831576cfcd8cb09f7d35fce764d55940\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\831576cfcd8cb09f7d35fce764d55940\transformed\material-1.9.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\438e139aa78f69804a46ea77764081bf\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -84,35 +84,39 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\RG
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:10:9-40
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:10:9-34
+	android:roundIcon
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:11:9-43
 	android:allowBackup
 		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:12:9-65
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:14:9-65
 	android:networkSecurityConfig
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:14:9-69
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:16:9-69
 	android:usesCleartextTraffic
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:13:9-45
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:15:9-45
 activity#com.example.calapkmoderno.MainActivity
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:15:9-23:20
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:17:9-25:20
 	android:exported
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:17:13-36
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:19:13-36
 	android:configChanges
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:18:13-59
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:13-59
 	android:name
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:16:13-41
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:18:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:19:13-22:29
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:17-77
+ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:23:27-74
 uses-sdk
 INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml
