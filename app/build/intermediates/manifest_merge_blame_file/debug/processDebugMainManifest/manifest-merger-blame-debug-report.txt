@@ -16,22 +16,22 @@
 12-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:6:22-76
 13
 14    <permission
-14-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+14-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 15        android:name="com.example.calapkmoderno.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-15-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+15-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
 16        android:protectionLevel="signature" />
-16-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+16-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 17
 18    <uses-permission android:name="com.example.calapkmoderno.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-18-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-18-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+18-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 19
 20    <application
 20-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:8:5-26:19
 21        android:allowBackup="true"
 21-->C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\src\main\AndroidManifest.xml:9:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\9de2d7800faae0898abe71fa4aea2480\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+22-->[androidx.core:core:1.9.0] C:\Users\RG2\.gradle\caches\8.13\transforms\00eeb73d329f60914ee7cf1a9183d8d3\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 23        android:debuggable="true"
 24        android:extractNativeLibs="true"
 25        android:icon="@mipmap/ic_launcher"
@@ -69,25 +69,25 @@
 41        </activity>
 42
 43        <provider
-43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 44            android:name="androidx.startup.InitializationProvider"
-44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
 45            android:authorities="com.example.calapkmoderno.androidx-startup"
-45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
 46            android:exported="false" >
-46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
 47            <meta-data
-47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
 48                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
 49                android:value="androidx.startup" />
-49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.10.2\transforms\a2e0384668867127275e028d860809fc\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\RG2\.gradle\caches\8.13\transforms\e6824132ad21a51f5bd68e19997dca65\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
 50            <meta-data
-50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.13\transforms\279af7dcfba2409b9faa8b0c83df5340\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
 51                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-51-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+51-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.13\transforms\279af7dcfba2409b9faa8b0c83df5340\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
 52                android:value="androidx.startup" />
-52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.10.2\transforms\7043be8c6fd6f639c8d2a68f499c8cbe\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\RG2\.gradle\caches\8.13\transforms\279af7dcfba2409b9faa8b0c83df5340\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
 53        </provider>
 54    </application>
 55

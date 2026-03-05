@@ -4,7 +4,7 @@
             "outputFile": "com.example.calapkmoderno.app-mergeDebugResources-27:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\RG2\\.gradle\\caches\\8.10.2\\transforms\\9d822b1a5034a3628a6bfccebac41f83\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\RG2\\.gradle\\caches\\8.13\\transforms\\9751129cf9a082d51cb0234e0f752002\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\RG2\\.gradle\\caches\\8.10.2\\transforms\\831576cfcd8cb09f7d35fce764d55940\\transformed\\material-1.9.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\RG2\\.gradle\\caches\\8.13\\transforms\\74b74808373ab0205595ee932546f0dd\\transformed\\material-1.9.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
