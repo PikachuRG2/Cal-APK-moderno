@@ -4,14 +4,24 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
+import android.os.Build;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.webkit.CookieManager;
+import android.webkit.ValueCallback;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewCompat;
+import androidx.webkit.WebViewFeature;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -23,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_OFFLINE_READY = "firstLoginComplete";
     private static final String KEY_ETAG = "etag";
     private static final String KEY_LASTMOD = "lastModified";
+    private static final String KEY_CONSENT = "consentAccepted";
+    private static final String PRIVACY_URL = "https://pikachurg2.github.io/RG2-Calculadora-pro/privacy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
         configureWebView();
+        showConsentIfNeeded();
 
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         boolean offlineReady = prefs.getBoolean(KEY_OFFLINE_READY, false);
+        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
 
         if (isNetworkAvailable()) {
             webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -41,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             webView.loadUrl(SITE_URL);
             checkForUpdatesAsync();
         } else {
-            if (offlineReady) {
+            if (offlineReady && consentAccepted) {
                 webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ONLY);
                 webView.getSettings().setBlockNetworkLoads(true);
             } else {
@@ -56,21 +70,36 @@ public class MainActivity extends AppCompatActivity {
         
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
         
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setAllowFileAccess(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        }
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.SAFE_BROWSING_ENABLE)) {
+            WebSettingsCompat.setSafeBrowsingEnabled(settings, true);
+        }
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.START_SAFE_BROWSING)) {
+            WebViewCompat.startSafeBrowsing(getApplicationContext(), new ValueCallback<Boolean>() {
+                @Override
+                public void onReceiveValue(Boolean value) {
+                }
+            });
+        }
         
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
-        cookieManager.setAcceptThirdPartyCookies(webView, true);
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
+        cookieManager.setAcceptThirdPartyCookies(webView, consentAccepted);
         
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 view.evaluateJavascript("(()=>{try{return !!(document.body&&document.body.innerText&&document.body.innerText.includes('Usuário autenticado'));}catch(e){return false}})()", value -> {
-                    if ("true".equals(value)) {
-                        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                    SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                    boolean consent = prefs.getBoolean(KEY_CONSENT, false);
+                    if ("true".equals(value) && consent) {
                         prefs.edit().putBoolean(KEY_OFFLINE_READY, true).apply();
                     }
                 });
@@ -85,6 +114,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showConsentIfNeeded() {
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
+        if (!consentAccepted) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Privacidade e Termos")
+                    .setMessage("Este app usa cookies e armazenamento para manter seu login e permitir uso offline. Você aceita?")
+                    .setPositiveButton("Aceito", (d, w) -> {
+                        prefs.edit().putBoolean(KEY_CONSENT, true).apply();
+                        CookieManager cm = CookieManager.getInstance();
+                        cm.setAcceptThirdPartyCookies(webView, true);
+                    })
+                    .setNegativeButton("Recusar", (d, w) -> {
+                        prefs.edit().putBoolean(KEY_CONSENT, false).apply();
+                        CookieManager cm = CookieManager.getInstance();
+                        cm.setAcceptThirdPartyCookies(webView, false);
+                        prefs.edit().putBoolean(KEY_OFFLINE_READY, false).apply();
+                    })
+                    .setNeutralButton("Ver Política", (d, w) -> {
+                        webView.loadUrl(PRIVACY_URL);
+                    })
+                    .show();
+        }
     }
 
     private void checkForUpdatesAsync() {
@@ -123,9 +177,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) return false;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network network = cm.getActiveNetwork();
+            if (network == null) return false;
+            NetworkCapabilities nc = cm.getNetworkCapabilities(network);
+            return nc != null && (nc.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                    || nc.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                    || nc.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+                    || nc.hasTransport(NetworkCapabilities.TRANSPORT_USB));
+        } else {
+            NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
     }
 
     @Override
@@ -135,5 +200,39 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_privacy) {
+            webView.loadUrl(PRIVACY_URL);
+            return true;
+        } else if (id == R.id.action_clear_data) {
+            clearAppData();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void clearAppData() {
+        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+        prefs.edit().clear().apply();
+        CookieManager cm = CookieManager.getInstance();
+        cm.removeAllCookies(new ValueCallback<Boolean>() {
+            @Override
+            public void onReceiveValue(Boolean value) {
+            }
+        });
+        webView.clearCache(true);
+        webView.clearHistory();
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        webView.reload();
     }
 }

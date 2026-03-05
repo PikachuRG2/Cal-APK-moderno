@@ -1,0 +1,4 @@
+com.example.calapkmoderno.test.app-androidTest-0 C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\build\generated\res\resValues\androidTest\debug
+com.example.calapkmoderno.test.app-mergeDebugAndroidTestResources-1 C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.calapkmoderno.test.app-mergeDebugAndroidTestResources-2 C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.calapkmoderno.test.app-debugAndroidTest-3 C:\Users\RG2\Documents\GitHub\Cal-APK-moderno\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
