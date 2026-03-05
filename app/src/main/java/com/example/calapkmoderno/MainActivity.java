@@ -18,7 +18,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AlertDialog;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
@@ -28,13 +27,11 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
-    private static final String SITE_URL = "https://pikachurg2.github.io/RG2-Calculadora-pro/";
+    private static final String SITE_URL = "https://rg-2-cal-2026.vercel.app/";
     private static final String PREFS = "app_prefs";
     private static final String KEY_OFFLINE_READY = "firstLoginComplete";
     private static final String KEY_ETAG = "etag";
     private static final String KEY_LASTMOD = "lastModified";
-    private static final String KEY_CONSENT = "consentAccepted";
-    private static final String PRIVACY_URL = "https://pikachurg2.github.io/RG2-Calculadora-pro/privacy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
         configureWebView();
-        showConsentIfNeeded();
 
         SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
         boolean offlineReady = prefs.getBoolean(KEY_OFFLINE_READY, false);
-        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
 
         if (isNetworkAvailable()) {
             webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -55,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             webView.loadUrl(SITE_URL);
             checkForUpdatesAsync();
         } else {
-            if (offlineReady && consentAccepted) {
+            if (offlineReady) {
                 webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ONLY);
                 webView.getSettings().setBlockNetworkLoads(true);
             } else {
@@ -89,17 +84,14 @@ public class MainActivity extends AppCompatActivity {
         
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
-        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
-        cookieManager.setAcceptThirdPartyCookies(webView, consentAccepted);
+        cookieManager.setAcceptThirdPartyCookies(webView, true);
         
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
-                view.evaluateJavascript("(()=>{try{return !!(document.body&&document.body.innerText&&document.body.innerText.includes('Usuário autenticado'));}catch(e){return false}})()", value -> {
+                view.evaluateJavascript("(()=>{try{const t=document.body&&document.body.innerText||'';return t.includes('Usuário autenticado')||t.includes('AUTO POSTO PARAÍSO')}catch(e){return false}})()", value -> {
                     SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                    boolean consent = prefs.getBoolean(KEY_CONSENT, false);
-                    if ("true".equals(value) && consent) {
+                    if ("true".equals(value)) {
                         prefs.edit().putBoolean(KEY_OFFLINE_READY, true).apply();
                     }
                 });
@@ -114,31 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void showConsentIfNeeded() {
-        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-        boolean consentAccepted = prefs.getBoolean(KEY_CONSENT, false);
-        if (!consentAccepted) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Privacidade e Termos")
-                    .setMessage("Este app usa cookies e armazenamento para manter seu login e permitir uso offline. Você aceita?")
-                    .setPositiveButton("Aceito", (d, w) -> {
-                        prefs.edit().putBoolean(KEY_CONSENT, true).apply();
-                        CookieManager cm = CookieManager.getInstance();
-                        cm.setAcceptThirdPartyCookies(webView, true);
-                    })
-                    .setNegativeButton("Recusar", (d, w) -> {
-                        prefs.edit().putBoolean(KEY_CONSENT, false).apply();
-                        CookieManager cm = CookieManager.getInstance();
-                        cm.setAcceptThirdPartyCookies(webView, false);
-                        prefs.edit().putBoolean(KEY_OFFLINE_READY, false).apply();
-                    })
-                    .setNeutralButton("Ver Política", (d, w) -> {
-                        webView.loadUrl(PRIVACY_URL);
-                    })
-                    .show();
-        }
     }
 
     private void checkForUpdatesAsync() {
@@ -211,10 +178,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_privacy) {
-            webView.loadUrl(PRIVACY_URL);
-            return true;
-        } else if (id == R.id.action_clear_data) {
+        if (id == R.id.action_clear_data) {
             clearAppData();
             return true;
         }
